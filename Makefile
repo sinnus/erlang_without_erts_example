@@ -6,11 +6,13 @@ compile:
 
 package_dev: pre_package
 	cp -R release/etc/dev target/etc
-	tar -cvzf ../../example-dev.tar.gz *
+	cd target && \
+	tar -cvzf ../example-dev.tar.gz *
 
 package_prod: pre_package
 	cp -R release/etc/prod target/etc
-	tar -cvzf ../../example-prod.tar.gz *
+	cd target && \
+	tar -cvzf ../example-prod.tar.gz *
 
 pre_package: compile
 	rm -Rf target
